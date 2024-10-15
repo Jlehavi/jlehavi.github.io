@@ -14573,12 +14573,141 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     </script>
     <!-- End of mathjax configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a href="https://jlehavi.github.io/">jlehavi.github.io</a></p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Examining-Historical-NFL-Scores-and-Betting-Data-to-Predict-Future-Outcomes"><strong>Examining Historical NFL Scores and Betting Data to Predict Future Outcomes</strong><a class="anchor-link" href="#Examining-Historical-NFL-Scores-and-Betting-Data-to-Predict-Future-Outcomes">&#182;</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Jack Lehavi and Jonah Boyer</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Exploring-Data-Set-%231"><strong>Exploring Data Set #1</strong><a class="anchor-link" href="#Exploring-Data-Set-%231">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Dataset 1: “NFL Scores and betting data”</p>
+<p><a href="https://www.kaggle.com/datasets/tobycrabtree/nfl-scores-and-betting-data?select=spreadspoke_scores.csv">https://www.kaggle.com/datasets/tobycrabtree/nfl-scores-and-betting-data?select=spreadspoke_scores.csv</a></p>
+<p>This dataset contains data results from NFL games dating back to 1966 as well as betting odds dating back to 1979. The dataset draws information not only from the results of each NFL game, but meaningful statistics, predictions, weather factors, and stadium data that help tell a complete story on each result. Additionally, the data helps paint a picture on successful betting strategies employed historically, which could be helpful in building a more successful predictive betting model for NFL games.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Key-Questions"><strong>Key Questions</strong><a class="anchor-link" href="#Key-Questions">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We seek to answer the question(s): What are the most important statistics/predictors determining the final scores (winner/loser) of games? Are there any variables that when paired together, produce higher odds of victory for certain teams? Does weather for the home/away teams have meaningful effect on the outcome of the game, and if so, how? How can we use the prediction of game outcomes to exploit lines set by sport books? Is there a historical trend that supports this? What are the most meaningful statistics/predicters contributing to the spread result of each game? What about the over/under? What would be the investor returns for someone using this model over a specific period? Are these returns worth it and/or trustworthy?</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Key-Takeaways"><strong>Key Takeaways</strong><a class="anchor-link" href="#Key-Takeaways">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>After tidying the data, we found three statistics that are very compelling and will help us begin to answer our questions surrounding this data set. Some stats that we found are the following: the average score differential is 11.8, the win rate of favorite teams is 0.585, and the average spread in the playoffs is –5.88 and the average spread in the regular season is –5.34. Additionally, we feel that its important to notes several challenges we encountered when manipulating the data, including a large portion of the data containing NaN values, making the data somewhat difficult to work with. For calculating one stat, we need to drop the rows that contain NaN for a certain column, but we need to keep those rows for calculating other statistics.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Collaboration-Plan"><strong>Collaboration Plan</strong><a class="anchor-link" href="#Collaboration-Plan">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We plan to set up a public Github repo to coordinate code, while coding in Colab. Additionally, we plan to meet once a week, either by zoom or in-person, to review our progress and collaborate on future steps. Additionally, since the NFL season is currently in action, we each commit to staying up to date on games as they are occurring, and to note our findings of results and/or betting odds in a separately organized research document. This portion of the project is key to the model’s success, as it will help us make real-time adaptations in order to help it be as accurate as possible.</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pandas</span>
@@ -14592,49 +14721,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Requirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (2.2.2)
-Requirement already satisfied: numpy&gt;=1.22.4 in /usr/local/lib/python3.10/dist-packages (from pandas) (1.26.4)
-Requirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/local/lib/python3.10/dist-packages (from pandas) (2.8.2)
-Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas) (2024.2)
-Requirement already satisfied: tzdata&gt;=2022.7 in /usr/local/lib/python3.10/dist-packages (from pandas) (2024.2)
-Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
-/content
-Cloning into &#39;jlehavi.github.io&#39;...
-remote: Enumerating objects: 11, done.
-remote: Counting objects: 100% (11/11), done.
-remote: Compressing objects: 100% (9/9), done.
-remote: Total 11 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
-Receiving objects: 100% (11/11), 21.25 MiB | 11.83 MiB/s, done.
-Resolving deltas: 100% (2/2), done.
-/content/jlehavi.github.io
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -14651,7 +14743,7 @@ Resolving deltas: 100% (2/2), done.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
@@ -14691,7 +14783,7 @@ Resolving deltas: 100% (2/2), done.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'spreadspoke_scores.csv'</span><span class="p">)</span>
@@ -14713,7 +14805,7 @@ Resolving deltas: 100% (2/2), done.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="c1">#grabbing the average score difference in games</span>
@@ -14736,7 +14828,7 @@ Resolving deltas: 100% (2/2), done.
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
 
 
@@ -14756,7 +14848,7 @@ Resolving deltas: 100% (2/2), done.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="c1">#have to map the team id's back to team names so we can compare</span>
@@ -14807,7 +14899,7 @@ Resolving deltas: 100% (2/2), done.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">'favorite_team_name'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'team_favorite_id'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">team_name_mapping</span><span class="p">)</span>
@@ -14826,12 +14918,14 @@ Resolving deltas: 100% (2/2), done.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="c1">#we check if the favorite team won, both for home &amp; away</span>
-<span class="n">df_filtered</span><span class="p">[</span><span class="s1">'favorite_won'</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">df_filtered</span><span class="p">[</span><span class="s1">'favorite_team_name'</span><span class="p">]</span> <span class="o">==</span> <span class="n">df_filtered</span><span class="p">[</span><span class="s1">'team_home'</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df_filtered</span><span class="p">[</span><span class="s1">'score_home'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">df_filtered</span><span class="p">[</span><span class="s1">'score_away'</span><span class="p">]))</span> <span class="o">|</span> \
-                              <span class="p">((</span><span class="n">df_filtered</span><span class="p">[</span><span class="s1">'favorite_team_name'</span><span class="p">]</span> <span class="o">==</span> <span class="n">df_filtered</span><span class="p">[</span><span class="s1">'team_away'</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df_filtered</span><span class="p">[</span><span class="s1">'score_away'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">df_filtered</span><span class="p">[</span><span class="s1">'score_home'</span><span class="p">]))</span>
+<span class="n">df_filtered</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">'favorite_won'</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">df_filtered</span><span class="p">[</span><span class="s1">'favorite_team_name'</span><span class="p">]</span> <span class="o">==</span> <span class="n">df_filtered</span><span class="p">[</span><span class="s1">'team_home'</span><span class="p">])</span> <span class="o">&amp;</span>
+                                      <span class="p">(</span><span class="n">df_filtered</span><span class="p">[</span><span class="s1">'score_home'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">df_filtered</span><span class="p">[</span><span class="s1">'score_away'</span><span class="p">]))</span> <span class="o">|</span> \
+                                     <span class="p">((</span><span class="n">df_filtered</span><span class="p">[</span><span class="s1">'favorite_team_name'</span><span class="p">]</span> <span class="o">==</span> <span class="n">df_filtered</span><span class="p">[</span><span class="s1">'team_away'</span><span class="p">])</span> <span class="o">&amp;</span>
+                                      <span class="p">(</span><span class="n">df_filtered</span><span class="p">[</span><span class="s1">'score_away'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">df_filtered</span><span class="p">[</span><span class="s1">'score_home'</span><span class="p">]))</span>
 
 <span class="c1">#now grab the average # of times the favorite won</span>
 <span class="n">win_rate_favorite</span> <span class="o">=</span> <span class="n">df_filtered</span><span class="p">[</span><span class="s1">'favorite_won'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -14862,23 +14956,6 @@ Resolving deltas: 100% (2/2), done.
 </div>
 </div>
 
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>&lt;ipython-input-20-53c723e03a4b&gt;:2: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  df_filtered[&#39;favorite_won&#39;] = ((df_filtered[&#39;favorite_team_name&#39;] == df_filtered[&#39;team_home&#39;]) &amp; (df_filtered[&#39;score_home&#39;] &gt; df_filtered[&#39;score_away&#39;])) | \
-</pre>
-</div>
-</div>
-
 </div>
 
 </div>
@@ -14888,7 +14965,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="c1">#looking at the average spread of games in playoffs or regular season</span>
@@ -14931,7 +15008,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'score_difference'</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
@@ -14978,6 +15055,23 @@ class="
 </div>
 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-python"><pre><span></span><span class="o">%%</span><span class="n">shell</span>
+<span class="n">jupyter</span> <span class="n">nbconvert</span> <span class="o">--</span><span class="n">to</span> <span class="n">html</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">Colab</span>\ <span class="n">Notebooks</span><span class="o">/</span><span class="n">DS_Milestone_1</span><span class="o">.</span><span class="n">ipynb</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+
 </body>
 
 
