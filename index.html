@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>DS_Milestone2_Shared1</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Final Tutorial</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7517,7 +7517,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a href="https://jlehavi.github.io">jlehavi.github.io</a></p>
-<h1 id="Examining-Historical-NFL-Scores-and-Betting-Data-to-Predict-Future-Outcomes"><strong>Examining Historical NFL Scores and Betting Data to Predict Future Outcomes</strong><a class="anchor-link" href="#Examining-Historical-NFL-Scores-and-Betting-Data-to-Predict-Future-Outcomes">¶</a></h1><p>Jack Lehavi and Jonah Boyer</p>
+<h1 id="Final-Tutorial:-Making-Smarter-Bets"><strong>Final Tutorial: Making Smarter Bets</strong><a class="anchor-link" href="#Final-Tutorial:-Making-Smarter-Bets">¶</a></h1><p>Jack Lehavi and Jonah Boyer</p>
 <p>Link to GitHub: <a href="https://Jlehavi.github.io">https://Jlehavi.github.io</a></p>
 </div>
 </div>
@@ -7529,7 +7529,92 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Goal"><strong>Goal</strong><a class="anchor-link" href="#Goal">¶</a></h1><p>What are the most valuable metrics in determing game outcomes? Our model will determine which odds are going to win and when they are worth betting on depending on expected value of earnings.</p>
+<h2 id="Introduction"><strong>Introduction</strong><a class="anchor-link" href="#Introduction">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>In our project, we aimed to find a solution to the growing problem of unsuccessful NFL betting. NFL fans that wish to place bets on weekly games face challenges as many people choose to bet based on their emotions, which leads to <strong>biased</strong>, <strong>unfavorable</strong>, and <strong>inconsistent</strong> <strong>results</strong>.</p>
+<p>Additionally, we found that “Bettors who rely on emotions often experience lower success rates compared to those who employ analytical approaches. A survey of 1,000 UK sports bettors revealed that 59.48% relied on gut instinct, with 32% regretting such decisions. In contrast, 64.67% acknowledged that research-driven bets yield better outcomes.” – The Sun UK</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Important-Terminology"><strong>Important Terminology</strong><a class="anchor-link" href="#Important-Terminology">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ol>
+<li>Elo ratings: assigns a power rating (around 1500 is average) for each team that help determine win probability for a given matchup based on quality of teams, location of game played, strength of quarterback, and more.</li>
+</ol>
+<ul>
+<li>For more information of the Elo model, please feel free to read 538's NFL Elo model description: <a href="https://fivethirtyeight.com/methodology/how-our-nfl-predictions-work/">https://fivethirtyeight.com/methodology/how-our-nfl-predictions-work/</a></li>
+</ul>
+<ol start="2">
+<li><p>Betting Spread: the margin of points the oddsmaker expects the game to be decided by</p>
+</li>
+<li><p>What is covering?</p>
+</li>
+</ol>
+<ul>
+<li>For the favorite: winning by more points than the spread</li>
+<li>For the underdog: losing by less points than the spread (or winning</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Key-Questions"><strong>Key Questions</strong><a class="anchor-link" href="#Key-Questions">¶</a></h2><ol>
+<li>Is there a relationship between Elo predicted spread and historical market spreads, and if so, can this relationship be used as a predictor of NFL games?</li>
+<li>What combination/weight of Elo ratings, historical NFL results, market data, weather, and type of stadium most accurately predicts which team “covers the spread” in each NFL game?</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Housekeeping-/-Data-Loading"><strong>Housekeeping / Data Loading</strong><a class="anchor-link" href="#Housekeeping-/-Data-Loading">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The first step of the exercize is to load in all libraries and data sources that will be used throughout the tutorial. We have four data sources: nfl_elo, nfl_stadiums, nfl_teams, and spreadspoke scores. We will explain the details of each data set as we progress though the tutorial.</p>
 </div>
 </div>
 </div>
@@ -7546,6 +7631,10 @@ a.anchor-link {
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
 <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">TimeSeriesSplit</span><span class="p">,</span> <span class="n">cross_val_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">roc_auc_score</span>
 <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">'/content/drive'</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -7594,7 +7683,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Data-Set-1:-NFL-Elo-Ratings"><strong>Data Set 1: NFL Elo Ratings</strong><a class="anchor-link" href="#Data-Set-1:-NFL-Elo-Ratings">¶</a></h1><p>The NFL Elo ratings dataset was created by fivethirtyeight.com and assigns a power rating (around 1500 is average) for each team that help determine win probability for a given matchup. The prediction takes into account quality of teams, location of game played, strength of quarterback, and more. In the dataset, there are variables showing each team, the date the game was played, the Elo ratings for each team before and after the game, the home away designations, and whether the game was in the playoffs (and more).</p>
+<h2 id="Examining-Data-Set-1:-NFL-Elo-Ratings"><strong>Examining Data Set 1: NFL Elo Ratings</strong><a class="anchor-link" href="#Examining-Data-Set-1:-NFL-Elo-Ratings">¶</a></h2><p>The NFL Elo ratings dataset was created by fivethirtyeight.com and assigns a power rating (around 1500 is average) for each team that help determine win probability for a given matchup. The prediction takes into account quality of teams, location of game played, strength of quarterback, and more. In the dataset, there are variables showing each team, the date the game was played, the Elo ratings for each team before and after the game, the home away designations, and whether the game was in the playoffs (and more).</p>
+<p>We found this dataset on Kaggle, and investigated the methodology further on fivethirtyeight's independent website (linked above).</p>
 </div>
 </div>
 </div>
@@ -7605,7 +7695,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Data-Set-2:-NFL-Stadiums"><strong>Data Set 2: NFL Stadiums</strong><a class="anchor-link" href="#Data-Set-2:-NFL-Stadiums">¶</a></h1><p>The nfl stadiums dataset contains data on ~120 stadiums, 30 of which are nfl stadiums. It has useful weather data on these stadiums such as the typical temperature as well as if stadiums are indoor, outdoor, or retractable, as well as grass type. These are interesting metrics to look at and see how much these factors might affect game outcomes or points scored</p>
+<h3 id="Pre-processing-steps"><strong>Pre-processing steps</strong><a class="anchor-link" href="#Pre-processing-steps">¶</a></h3>
 </div>
 </div>
 </div>
@@ -7616,22 +7706,18 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Data-Set-3:-NFL-Teams"><strong>Data Set 3: NFL Teams</strong><a class="anchor-link" href="#Data-Set-3:-NFL-Teams">¶</a></h1><p>This dataset does not contain data with relavent predicting power, but it contains a mapping from nfl team names to their abbreviations, which is useful in merging our datasets on the same team_name index</p>
+<p><strong>Renaming Columns for Clarity:</strong> we changed the names of several columns in the dataframe promote readability. Specifically, we focused on clarifying which teams &amp; statistics were attributed to the home and away teams, as opposed to just team 1 and team 2. For example, we changed:</p>
+<ul>
+<li>team1 --&gt; home_team</li>
+<li>elo1 --&gt; home_elo_pre</li>
+<li>qbelo1_pre --&gt; home_elo_pre</li>
+<li>score1 --&gt; home_score</li>
+</ul>
+<p>These changes made it much easier to distinguish the home and away team, a key point in our model as the model aims to predict the "whether the home team covers the spread".</p>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Data-Set-3:-Spreadspoke-Scores"><strong>Data Set 3: Spreadspoke Scores</strong><a class="anchor-link" href="#Data-Set-3:-Spreadspoke-Scores">¶</a></h1><p>This dataset contains data results from NFL games dating back to 1966 as well as betting odds dating back to 1979. The dataset draws information not only from the results of each NFL game, but meaningful statistics, predictions, weather factors, and stadium data that help tell a complete story on each result. Additionally, the data helps paint a picture on successful betting strategies employed historically, which could be helpful in building a more successful predictive betting model for NFL games.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7655,28 +7741,125 @@ a.anchor-link {
     <span class="s1">'qb1_value_post'</span><span class="p">:</span> <span class="s1">'home_qb_value_post'</span><span class="p">,</span> <span class="s1">'qb2_value_post'</span><span class="p">:</span> <span class="s1">'away_qb_value_post'</span><span class="p">,</span>
     <span class="s1">'qbelo1_post'</span><span class="p">:</span> <span class="s1">'home_qbelo_post'</span><span class="p">,</span> <span class="s1">'qbelo2_post'</span><span class="p">:</span> <span class="s1">'away_qbelo_post'</span><span class="p">,</span>
     <span class="s1">'score1'</span><span class="p">:</span> <span class="s1">'home_score'</span><span class="p">,</span> <span class="s1">'score2'</span><span class="p">:</span> <span class="s1">'away_score'</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-
-<span class="c1"># reset index to 'away at home'</span>
-<span class="n">df_elo_total</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">df_elo_total</span><span class="p">[</span><span class="s1">'away_team'</span><span class="p">]</span> <span class="o">+</span> <span class="s1">' at '</span> <span class="o">+</span> <span class="n">df_elo_total</span><span class="p">[</span><span class="s1">'home_team'</span><span class="p">]</span>
-
-<span class="c1"># change playoff from categorical to quantitative</span>
-<span class="n">df_elo_total</span><span class="p">[</span><span class="s1">'playoff'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Convert Playoff Column:</strong> change the playoff column from a categorical variable to quantitative value to enable easier processing for the modeling.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="c1"># change playoff from categorical to quantitative</span>
+<span class="n">df_elo_total</span><span class="p">[</span><span class="s1">'playoff'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">df_elo_total</span><span class="p">[</span><span class="s1">'playoff'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_elo_total</span><span class="p">[</span><span class="s1">'playoff'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">'w'</span> <span class="k">else</span> <span class="p">(</span><span class="mi">2</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">'d'</span> <span class="k">else</span> <span class="p">(</span><span class="mi">3</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">'c'</span> <span class="k">else</span> <span class="p">(</span><span class="mi">4</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">'s'</span> <span class="k">else</span> <span class="mi">0</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
-<span class="c1"># add elo diff columns</span>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Add Elo Difference (elo_diff) Column:</strong> this new column was created to measure the difference in Elo ratings after each game. Additionally, several adjustments were made (in accordance with 538's guidelines) to help better indicate the relative strength of each opponent.</p>
+<p>Adjustments: home team recieves 48 point home field advantage &amp; and Elo is scaled 20% for playoff games.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="c1"># add elo diff columns</span>
 <span class="n">df_elo_total</span><span class="p">[</span><span class="s1">'elo_diff'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_elo_total</span><span class="p">[</span><span class="s1">'home_elo_post'</span><span class="p">]</span> <span class="o">-</span> <span class="n">df_elo_total</span><span class="p">[</span><span class="s1">'away_elo_post'</span><span class="p">]</span>
 <span class="n">df_elo_total</span><span class="p">[</span><span class="s1">'elo_diff'</span><span class="p">]</span> <span class="o">+=</span> <span class="n">df_elo_total</span><span class="p">[</span><span class="s1">'neutral'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">48</span><span class="p">)</span> <span class="c1"># home field advantage adjustment</span>
 <span class="n">df_elo_total</span><span class="p">[</span><span class="s1">'elo_diff'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_elo_total</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span> <span class="c1"># playoff adjustment</span>
     <span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">'elo_diff'</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1.2</span> <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">'playoff'</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">row</span><span class="p">[</span><span class="s1">'elo_diff'</span><span class="p">],</span>
     <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
 <span class="p">)</span>
-
-
-
-<span class="n">df_elo_total</span><span class="p">[</span><span class="s1">'betting_spread'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_elo_total</span><span class="p">[</span><span class="s1">'elo_diff'</span><span class="p">]</span> <span class="o">/</span> <span class="mi">25</span> <span class="c1"># betting spread -- positive value indicate home team favored, negative means away is favored</span>
-
-<span class="c1"># only display dates after 1978 to match with other dataset</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Calculate Elo-derived Betting Spread:</strong> we divided the Elo difference by 25 to find the predicted betting spread. This metric is very important in the development of the model because it provides a basis for comparison between the historical spreads set by the betting markets, and the elo predicted lines. These discrepencies give us insight on the accuracy of each spread, which helps inform the model to make better betting decisions.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="n">df_elo_total</span><span class="p">[</span><span class="s1">'betting_spread'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_elo_total</span><span class="p">[</span><span class="s1">'elo_diff'</span><span class="p">]</span> <span class="o">/</span> <span class="mi">25</span> <span class="c1"># betting spread -- positive value indicate home team favored, negative means away is favored</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Filter Dates and Clone Dataframe:</strong> Finally, we filtered data before 1978 and created a cleaned version of the dataframe.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="c1"># only display dates after 1978 to match with other dataset</span>
 <span class="n">df_elo_total</span> <span class="o">=</span> <span class="n">df_elo_total</span><span class="p">[</span><span class="n">df_elo_total</span><span class="p">[</span><span class="s1">'date'</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="s1">'1978-01-01'</span><span class="p">]</span>
 
 <span class="c1"># Display the cleaned structure and a few rows to the user</span>
@@ -7692,9 +7875,9 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div class="colab-df-container" id="df-ae53fbf5-c42b-4430-88db-e63ff7eaa3b7">
+<div class="colab-df-container" id="df-05a151c1-581f-4fe8-a496-aff1a2aad8c2">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -7738,7 +7921,7 @@ a.anchor-link {
 </thead>
 <tbody>
 <tr>
-<th>MIN at DAL</th>
+<th>6086</th>
 <td>1978-01-01</td>
 <td>1977</td>
 <td>0</td>
@@ -7762,7 +7945,7 @@ a.anchor-link {
 <td>7.645872</td>
 </tr>
 <tr>
-<th>OAK at DEN</th>
+<th>6087</th>
 <td>1978-01-01</td>
 <td>1977</td>
 <td>0</td>
@@ -7786,7 +7969,7 @@ a.anchor-link {
 <td>3.262944</td>
 </tr>
 <tr>
-<th>DAL at DEN</th>
+<th>6088</th>
 <td>1978-01-15</td>
 <td>1977</td>
 <td>1</td>
@@ -7810,7 +7993,7 @@ a.anchor-link {
 <td>-2.653536</td>
 </tr>
 <tr>
-<th>NYG at TB</th>
+<th>6089</th>
 <td>1978-09-02</td>
 <td>1978</td>
 <td>0</td>
@@ -7834,7 +8017,7 @@ a.anchor-link {
 <td>-3.225200</td>
 </tr>
 <tr>
-<th>PIT at BUF</th>
+<th>6090</th>
 <td>1978-09-03</td>
 <td>1978</td>
 <td>0</td>
@@ -7882,7 +8065,7 @@ a.anchor-link {
 <td>...</td>
 </tr>
 <tr>
-<th>LAR at TB</th>
+<th>17090</th>
 <td>2022-01-23</td>
 <td>2021</td>
 <td>0</td>
@@ -7906,7 +8089,7 @@ a.anchor-link {
 <td>2.827563</td>
 </tr>
 <tr>
-<th>BUF at KC</th>
+<th>17091</th>
 <td>2022-01-23</td>
 <td>2021</td>
 <td>0</td>
@@ -7930,7 +8113,7 @@ a.anchor-link {
 <td>4.466987</td>
 </tr>
 <tr>
-<th>CIN at KC</th>
+<th>17092</th>
 <td>2022-01-30</td>
 <td>2021</td>
 <td>0</td>
@@ -7954,7 +8137,7 @@ a.anchor-link {
 <td>6.973088</td>
 </tr>
 <tr>
-<th>SF at LAR</th>
+<th>17093</th>
 <td>2022-01-30</td>
 <td>2021</td>
 <td>0</td>
@@ -7978,7 +8161,7 @@ a.anchor-link {
 <td>4.685981</td>
 </tr>
 <tr>
-<th>LAR at CIN</th>
+<th>17094</th>
 <td>2022-02-13</td>
 <td>2021</td>
 <td>1</td>
@@ -8007,7 +8190,7 @@ a.anchor-link {
 </div>
 <div class="colab-df-buttons">
 <div class="colab-df-container">
-<button class="colab-df-convert" onclick="convertToInteractive('df-ae53fbf5-c42b-4430-88db-e63ff7eaa3b7')" style="display:none;" title="Convert this dataframe to an interactive table.">
+<button class="colab-df-convert" onclick="convertToInteractive('df-05a151c1-581f-4fe8-a496-aff1a2aad8c2')" style="display:none;" title="Convert this dataframe to an interactive table.">
 <svg height="24px" viewbox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
 <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"></path>
 </svg>
@@ -8054,12 +8237,12 @@ a.anchor-link {
   </style>
 <script>
       const buttonEl =
-        document.querySelector('#df-ae53fbf5-c42b-4430-88db-e63ff7eaa3b7 button.colab-df-convert');
+        document.querySelector('#df-05a151c1-581f-4fe8-a496-aff1a2aad8c2 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-ae53fbf5-c42b-4430-88db-e63ff7eaa3b7');
+        const element = document.querySelector('#df-05a151c1-581f-4fe8-a496-aff1a2aad8c2');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -8077,8 +8260,8 @@ a.anchor-link {
       }
     </script>
 </div>
-<div id="df-f90a97f7-fdcc-4842-96b0-1c864f06d0aa">
-<button class="colab-df-quickchart" onclick="quickchart('df-f90a97f7-fdcc-4842-96b0-1c864f06d0aa')" style="display:none;" title="Suggest charts">
+<div id="df-422d3d94-4977-4636-ad13-5010fac7190f">
+<button class="colab-df-quickchart" onclick="quickchart('df-422d3d94-4977-4636-ad13-5010fac7190f')" style="display:none;" title="Suggest charts">
 <svg height="24px" viewbox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
 <g>
 <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"></path>
@@ -8191,13 +8374,13 @@ a.anchor-link {
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-f90a97f7-fdcc-4842-96b0-1c864f06d0aa button');
+        document.querySelector('#df-422d3d94-4977-4636-ad13-5010fac7190f button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
-<div id="id_681690cc-e8d1-4b86-9bfb-3ff6a8807e4c">
+<div id="id_e3bd0753-fd03-43c0-a8b2-333889615469">
 <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -8237,7 +8420,7 @@ a.anchor-link {
 <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_681690cc-e8d1-4b86-9bfb-3ff6a8807e4c button.colab-df-generate');
+        document.querySelector('#id_e3bd0753-fd03-43c0-a8b2-333889615469 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -8253,12 +8436,45 @@ a.anchor-link {
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Examining-Data-Set-2:-NFL-Stadiums"><strong>Examining Data Set 2: NFL Stadiums</strong><a class="anchor-link" href="#Examining-Data-Set-2:-NFL-Stadiums">¶</a></h2><p>The nfl stadiums dataset contains data on ~120 stadiums, 30 of which are nfl stadiums. It has useful weather data on these stadiums such as the typical temperature as well as if stadiums are indoor, outdoor, or retractable, as well as grass type. These are interesting metrics to look at and see how much these factors might affect game outcomes or points scored</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Pre-processing-Steps"><strong>Pre-processing Steps</strong><a class="anchor-link" href="#Pre-processing-Steps">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Dropped unneeded columns:</strong> we chose to drop all columns except for the name of each stadium as we felt the additional variables only crowded the data.</p>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">nfl_stadiums</span> <span class="o">=</span> <span class="p">[</span>
@@ -8288,9 +8504,9 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div class="colab-df-container" id="df-053c7952-3c62-4025-be05-49165e6f43a8">
+<div class="colab-df-container" id="df-575182df-893f-40ab-8106-8754d51f79ff">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -8562,7 +8778,7 @@ a.anchor-link {
 </div>
 <div class="colab-df-buttons">
 <div class="colab-df-container">
-<button class="colab-df-convert" onclick="convertToInteractive('df-053c7952-3c62-4025-be05-49165e6f43a8')" style="display:none;" title="Convert this dataframe to an interactive table.">
+<button class="colab-df-convert" onclick="convertToInteractive('df-575182df-893f-40ab-8106-8754d51f79ff')" style="display:none;" title="Convert this dataframe to an interactive table.">
 <svg height="24px" viewbox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
 <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"></path>
 </svg>
@@ -8609,12 +8825,12 @@ a.anchor-link {
   </style>
 <script>
       const buttonEl =
-        document.querySelector('#df-053c7952-3c62-4025-be05-49165e6f43a8 button.colab-df-convert');
+        document.querySelector('#df-575182df-893f-40ab-8106-8754d51f79ff button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-053c7952-3c62-4025-be05-49165e6f43a8');
+        const element = document.querySelector('#df-575182df-893f-40ab-8106-8754d51f79ff');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -8632,8 +8848,8 @@ a.anchor-link {
       }
     </script>
 </div>
-<div id="df-f2e7b5fb-3146-4671-bc06-324e19489289">
-<button class="colab-df-quickchart" onclick="quickchart('df-f2e7b5fb-3146-4671-bc06-324e19489289')" style="display:none;" title="Suggest charts">
+<div id="df-3a86fd29-f4be-47eb-8a6d-d43bc3ae3aef">
+<button class="colab-df-quickchart" onclick="quickchart('df-3a86fd29-f4be-47eb-8a6d-d43bc3ae3aef')" style="display:none;" title="Suggest charts">
 <svg height="24px" viewbox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
 <g>
 <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"></path>
@@ -8746,13 +8962,13 @@ a.anchor-link {
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-f2e7b5fb-3146-4671-bc06-324e19489289 button');
+        document.querySelector('#df-3a86fd29-f4be-47eb-8a6d-d43bc3ae3aef button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
-<div id="id_8569f7a6-a5ac-4a5b-8753-c5dd5adfaa6d">
+<div id="id_64ab2086-38b0-45d0-b688-affed66b002d">
 <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -8792,7 +9008,7 @@ a.anchor-link {
 <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_8569f7a6-a5ac-4a5b-8753-c5dd5adfaa6d button.colab-df-generate');
+        document.querySelector('#id_64ab2086-38b0-45d0-b688-affed66b002d button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -8808,12 +9024,57 @@ a.anchor-link {
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Examining-Data-Set-3:-NFL-Teams"><strong>Examining Data Set 3: NFL Teams</strong><a class="anchor-link" href="#Examining-Data-Set-3:-NFL-Teams">¶</a></h2><p>This dataset does not contain data with relavent predicting power, but it contains a mapping from nfl team names to their abbreviations, which is useful in merging our datasets on the same team_name index</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Examining-Data-Set-4:-Spreadspoke-Scores"><strong>Examining Data Set 4: Spreadspoke Scores</strong><a class="anchor-link" href="#Examining-Data-Set-4:-Spreadspoke-Scores">¶</a></h2><p>This dataset contains data results from NFL games dating back to 1966 as well as betting odds dating back to 1979. The dataset draws information not only from the results of each NFL game, but meaningful statistics, predictions, weather factors, and stadium data that help tell a complete story on each result. Additionally, the data helps paint a picture on successful betting strategies employed historically, which could be helpful in building a more successful predictive betting model for NFL games.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Pre-processing-Steps"><strong>Pre-processing Steps</strong><a class="anchor-link" href="#Pre-processing-Steps">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Drop Unnecessary Columns: drop columns such as weather humidity, weather detail, and many unnamed columns.</p>
+<p>Remove Rows with Missing Key Data: remove rows with NaN values in the home score &amp; over under columns. This is important because there columns are essential for analysis and if there were rows with missing data, it would compromise the conclusions.</p>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">df_scores</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'weather_humidity'</span><span class="p">,</span> <span class="s1">'weather_detail'</span><span class="p">,</span> <span class="s1">'Unnamed: 17'</span><span class="p">,</span> <span class="s1">'Unnamed: 18'</span><span class="p">,</span> <span class="s1">'Unnamed: 19'</span><span class="p">,</span> <span class="s1">'Unnamed: 20'</span><span class="p">,</span> <span class="s1">'Unnamed: 21'</span><span class="p">,</span> <span class="s1">'Unnamed: 22'</span><span class="p">,</span> <span class="s1">'Unnamed: 22'</span><span class="p">,</span> <span class="s1">'Unnamed: 23'</span><span class="p">,</span> <span class="s1">'Unnamed: 24'</span><span class="p">,</span> <span class="s1">'Unnamed: 25'</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -8823,12 +9084,46 @@ a.anchor-link {
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Merging-Datasets-Together"><strong>Merging Datasets Together</strong><a class="anchor-link" href="#Merging-Datasets-Together">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>This step synthesizes data from each data set and creates a cohesive dataframe (df_total) that will aid in completed useful EDA. This new dataframe contains game-level information (scores, teams, dates), stadium details, ELo-based metrics, and team names/abbreviations.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Merge Stadium Info into Game Data:</strong> merging the scores and stadiums data set on "stadium" using a left join to create df_games_stadiums</p>
+<p>Additionally, rename several columns for clarity, map team names to abbreviations, and normalaize the date format.</p>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">df_stadiums</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'stadium_name'</span><span class="p">:</span> <span class="s1">'stadium'</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -8853,9 +9148,9 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div class="colab-df-container" id="df-785c7ae5-fffe-4c38-a7d4-0a29d19b2a2c">
+<div class="colab-df-container" id="df-761cb1b3-d387-48e0-bf20-2382ccfe5efb">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -9144,7 +9439,7 @@ a.anchor-link {
 </div>
 <div class="colab-df-buttons">
 <div class="colab-df-container">
-<button class="colab-df-convert" onclick="convertToInteractive('df-785c7ae5-fffe-4c38-a7d4-0a29d19b2a2c')" style="display:none;" title="Convert this dataframe to an interactive table.">
+<button class="colab-df-convert" onclick="convertToInteractive('df-761cb1b3-d387-48e0-bf20-2382ccfe5efb')" style="display:none;" title="Convert this dataframe to an interactive table.">
 <svg height="24px" viewbox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
 <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"></path>
 </svg>
@@ -9191,12 +9486,12 @@ a.anchor-link {
   </style>
 <script>
       const buttonEl =
-        document.querySelector('#df-785c7ae5-fffe-4c38-a7d4-0a29d19b2a2c button.colab-df-convert');
+        document.querySelector('#df-761cb1b3-d387-48e0-bf20-2382ccfe5efb button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-785c7ae5-fffe-4c38-a7d4-0a29d19b2a2c');
+        const element = document.querySelector('#df-761cb1b3-d387-48e0-bf20-2382ccfe5efb');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -9214,8 +9509,8 @@ a.anchor-link {
       }
     </script>
 </div>
-<div id="df-c62f798a-7659-44cc-8175-be36d230a6c9">
-<button class="colab-df-quickchart" onclick="quickchart('df-c62f798a-7659-44cc-8175-be36d230a6c9')" style="display:none;" title="Suggest charts">
+<div id="df-8ad0b98b-617e-4943-8345-3c4795f57e16">
+<button class="colab-df-quickchart" onclick="quickchart('df-8ad0b98b-617e-4943-8345-3c4795f57e16')" style="display:none;" title="Suggest charts">
 <svg height="24px" viewbox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
 <g>
 <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"></path>
@@ -9328,13 +9623,13 @@ a.anchor-link {
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-c62f798a-7659-44cc-8175-be36d230a6c9 button');
+        document.querySelector('#df-8ad0b98b-617e-4943-8345-3c4795f57e16 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
-<div id="id_dcff762d-10d5-4b4e-83f4-b37cc65298dd">
+<div id="id_67f29e56-a0e8-436e-9d6e-d81247c96faa">
 <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -9374,7 +9669,7 @@ a.anchor-link {
 <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_dcff762d-10d5-4b4e-83f4-b37cc65298dd button.colab-df-generate');
+        document.querySelector('#id_67f29e56-a0e8-436e-9d6e-d81247c96faa button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -9390,12 +9685,24 @@ a.anchor-link {
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Merge Elo Data to Stadium and Games Dataset: Using an inner join on date, season, home_score, away_score, home_team, away_team we created df_total</p>
+<p>Additionally, columns were renamed for clarity (related to the spreads) and add a column that calculates total points scores in a came using the sum of the home and away score.</p>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">df_elo_total_cleaned</span><span class="p">[</span><span class="s1">'date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_elo_total_cleaned</span><span class="p">[</span><span class="s1">'date'</span><span class="p">])</span>
@@ -9414,9 +9721,9 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div class="colab-df-container" id="df-d32c93af-5309-447e-8143-1d913d2e89ab">
+<div class="colab-df-container" id="df-5b898962-641d-4fd5-92fa-2e8b35f2504f">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -9729,7 +10036,7 @@ a.anchor-link {
 </div>
 <div class="colab-df-buttons">
 <div class="colab-df-container">
-<button class="colab-df-convert" onclick="convertToInteractive('df-d32c93af-5309-447e-8143-1d913d2e89ab')" style="display:none;" title="Convert this dataframe to an interactive table.">
+<button class="colab-df-convert" onclick="convertToInteractive('df-5b898962-641d-4fd5-92fa-2e8b35f2504f')" style="display:none;" title="Convert this dataframe to an interactive table.">
 <svg height="24px" viewbox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
 <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"></path>
 </svg>
@@ -9776,12 +10083,12 @@ a.anchor-link {
   </style>
 <script>
       const buttonEl =
-        document.querySelector('#df-d32c93af-5309-447e-8143-1d913d2e89ab button.colab-df-convert');
+        document.querySelector('#df-5b898962-641d-4fd5-92fa-2e8b35f2504f button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-d32c93af-5309-447e-8143-1d913d2e89ab');
+        const element = document.querySelector('#df-5b898962-641d-4fd5-92fa-2e8b35f2504f');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -9799,8 +10106,8 @@ a.anchor-link {
       }
     </script>
 </div>
-<div id="df-a9db6dbc-4760-4b3d-9c55-abc2d1fd9430">
-<button class="colab-df-quickchart" onclick="quickchart('df-a9db6dbc-4760-4b3d-9c55-abc2d1fd9430')" style="display:none;" title="Suggest charts">
+<div id="df-68181c84-79f5-4a78-8596-856f85ab0ae7">
+<button class="colab-df-quickchart" onclick="quickchart('df-68181c84-79f5-4a78-8596-856f85ab0ae7')" style="display:none;" title="Suggest charts">
 <svg height="24px" viewbox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
 <g>
 <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"></path>
@@ -9913,13 +10220,13 @@ a.anchor-link {
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-a9db6dbc-4760-4b3d-9c55-abc2d1fd9430 button');
+        document.querySelector('#df-68181c84-79f5-4a78-8596-856f85ab0ae7 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
-<div id="id_d3e3d7eb-499a-4d36-9a7e-6e51e1c90778">
+<div id="id_1e96ab5f-3bbf-4695-98a7-5c78db1d88d2">
 <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -9959,7 +10266,7 @@ a.anchor-link {
 <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_d3e3d7eb-499a-4d36-9a7e-6e51e1c90778 button.colab-df-generate');
+        document.querySelector('#id_1e96ab5f-3bbf-4695-98a7-5c78db1d88d2 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -9982,7 +10289,29 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Examining-whether-the-team-with-the-higher-ELO-coming-into-the-week-won"><strong>Examining whether the team with the higher ELO coming into the week won</strong><a class="anchor-link" href="#Examining-whether-the-team-with-the-higher-ELO-coming-into-the-week-won">¶</a></h1>
+<h2 id="Exploratory-Data-Analysis"><strong>Exploratory Data Analysis</strong><a class="anchor-link" href="#Exploratory-Data-Analysis">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Diving-into-Elo-Data-Trends"><strong>Diving into Elo Data Trends</strong><a class="anchor-link" href="#Diving-into-Elo-Data-Trends">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>First, we examined <strong>whether the team with the higher ELO coming into the week won their matchup</strong>. This analysis helps show the accuracy in the predictive power of the Elo ranking systems. This helps validate that the Elo methodology is a reliable variable for creating our model. This result was predicted to favor the team with the higher elo (stronger teams win more), which proved correct.</p>
 </div>
 </div>
 </div>
@@ -9991,7 +10320,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -10063,18 +10392,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Impact-of-ELOdiff-on-prediction-accuracy"><strong>Impact of ELOdiff on prediction accuracy</strong><a class="anchor-link" href="#Impact-of-ELOdiff-on-prediction-accuracy">¶</a></h1>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Analyzing Elo prediction accuracy across different Elo differences can reveal if larger Elo differences correlate with higher prediction accuracy, and help establish a signal for when Elo differences become important.</p>
+<p>Next, we examined the <strong>impact of Elo Difference on the prediction accuracy of each game.</strong> Analyzing Elo prediction accuracy across different Elo differences can reveal if larger Elo differences correlate with higher prediction accuracy, and help establish a signal for when Elo differences become important.</p>
 </div>
 </div>
 </div>
@@ -10083,7 +10401,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">df_elo_predictions</span><span class="p">[</span><span class="s1">'elo_diff'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_elo_total_cleaned</span><span class="p">[</span><span class="s1">'elo_diff'</span><span class="p">]</span>
@@ -10158,7 +10476,7 @@ Name: predicted_correct, dtype: float64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Comparing-historical-spread-favorite-and-ELO-calculated-spread"><strong>Comparing historical spread favorite and ELO calculated spread</strong><a class="anchor-link" href="#Comparing-historical-spread-favorite-and-ELO-calculated-spread">¶</a></h1>
+<p>Next, we <strong>compared the historical spread favorite and ELO calculated spread</strong> to give us a good idea on the alignment between historical market expectations and the elo based prediciton system. This analysis is important because it highlights trends in discrepencies, which can be used to help identify high value bets.</p>
 </div>
 </div>
 </div>
@@ -10167,7 +10485,7 @@ Name: predicted_correct, dtype: float64
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="c1"># compare elo predicted spread and spread favorite</span>
@@ -10207,8 +10525,18 @@ Name: predicted_correct, dtype: float64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The graph is skewed to the right, with most values near 0 and decreasing as they move toward higher positive values. This suggests that in most cases, the Elo spread is close to the historical spread, which shows general agreement between the Elo model and the betting market.</p>
-<p>There is a long tail to the right, meaning there are instances where Elo likes the underdog more than the market, which is indicated by high positive discrepancies.</p>
+<p>The graph is skewed to the right, with most values near 0 and decreasing as they move toward higher positive values. This suggests that in most cases, the Elo spread is close to the historical spread, which shows general agreement between the Elo model and the betting market. There is a long tail to the right, meaning there are instances where Elo sees more value in the underdog more than the market, which is indicated by high positive discrepancies. This chart can help indentify areas where ineffiencies between the elo and market can be exploited.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Finally, we investigated the <strong>success rate of bets by spread discrepancy range</strong>. We felt this was an important metic because it helps identify specific discrepency ranges that have higher sucess rates, which will help improve the profitability of the model.</p>
 </div>
 </div>
 </div>
@@ -10217,7 +10545,7 @@ Name: predicted_correct, dtype: float64
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">df_spread_comparison</span><span class="p">[</span><span class="s1">'home_score'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_total</span><span class="p">[</span><span class="s1">'home_score'</span><span class="p">]</span>
@@ -10307,7 +10635,18 @@ Name: outcome, dtype: float64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Comparing-differences-in-total-points-between-indoor-&amp;-outdoor-stadiums"><strong>Comparing differences in total points between indoor &amp; outdoor stadiums</strong><a class="anchor-link" href="#Comparing-differences-in-total-points-between-indoor-&amp;-outdoor-stadiums">¶</a></h1>
+<h3 id="Exploring-the-Impacts-of-Stadium-Types-and-Weather-Variables"><strong>Exploring the Impacts of Stadium Types and Weather Variables</strong><a class="anchor-link" href="#Exploring-the-Impacts-of-Stadium-Types-and-Weather-Variables">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>First, we <strong>compared differences in total points between indoor &amp; outdoor stadiums</strong>. This analysis is useful because it gives more insight on the point potential for each game derived from factors that are unrelated to the game itself. This helps us establish whether external factors such as stadium type can be used as a predictor in our model.</p>
 </div>
 </div>
 </div>
@@ -10316,7 +10655,7 @@ Name: outcome, dtype: float64
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
@@ -10353,7 +10692,7 @@ Name: outcome, dtype: float64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>This graph gives a very basic look at the affect indoor and outdoor stadiums have on average total points. It is clear games played in outdoor stadiums have a lower average total points, which is an important variable to consider when predicting if a spread will cover or an OU line will hit.</p>
+<p>This graph gives a very basic look at the affect indoor and outdoor stadiums have on average total points. It is clear games played in outdoor stadiums have a lower average total points, which is an important variable to consider when predicting if a spread will cover or an over/under line will succeed.</p>
 </div>
 </div>
 </div>
@@ -10364,7 +10703,7 @@ Name: outcome, dtype: float64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Looking-at-relationship-between-wind-speed-and-average-total-points"><strong>Looking at relationship between wind speed and average total points</strong><a class="anchor-link" href="#Looking-at-relationship-between-wind-speed-and-average-total-points">¶</a></h1>
+<p>Next, we look at the <strong>relationship between wind speed and average total points</strong> to establish another key data point in determining if weather patterns have a clear and convincing impact on the results of the games point totals. If we can establish a correlation between certain weather patterns and game results, it would prove to be a very useful variable in determining the correct results for each game.</p>
 </div>
 </div>
 </div>
@@ -10373,7 +10712,7 @@ Name: outcome, dtype: float64
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">df_total</span><span class="p">[</span><span class="s1">'wind_bin'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df_total</span><span class="p">[</span><span class="s1">'weather_wind_mph'</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
@@ -10422,7 +10761,7 @@ Name: outcome, dtype: float64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Idea-%231---We-plan-to-use-the-historical-discrepencies-between-Elo-predicted-outcomes-and-market-predicted-outcomes-to-train-our-model-into-exploiting-these-differences"><strong>Idea #1 - We plan to use the historical discrepencies between Elo predicted outcomes and market predicted outcomes to train our model into exploiting these differences</strong><a class="anchor-link" href="#Idea-%231---We-plan-to-use-the-historical-discrepencies-between-Elo-predicted-outcomes-and-market-predicted-outcomes-to-train-our-model-into-exploiting-these-differences">¶</a></h1>
+<h2 id="Hypothesis-and-Key-Support"><strong>Hypothesis and Key Support</strong><a class="anchor-link" href="#Hypothesis-and-Key-Support">¶</a></h2>
 </div>
 </div>
 </div>
@@ -10433,7 +10772,12 @@ Name: outcome, dtype: float64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Idea-%232---We-plan-to-use-useful-statistics-such-as-weather-information-and-elo-ratings-to-determine-if-a-given-spread-covers"><strong>Idea #2 - We plan to use useful statistics such as weather information and elo ratings to determine if a given spread covers</strong><a class="anchor-link" href="#Idea-%232---We-plan-to-use-useful-statistics-such-as-weather-information-and-elo-ratings-to-determine-if-a-given-spread-covers">¶</a></h1>
+<ol>
+<li>We believe that based on the EDA our model will recommend more bets on games where the Elo-based prediction favors the underdogs more than the live betting markets do</li>
+<li>Additionally, we believe that weather factors play a key role in determining outcomes of games, specifically when it deals with how many points are scored</li>
+<li>Finally, we believe that we will be able to achieve a breakeven rate of at east ~52%, which will consider our model profitable</li>
+</ol>
+<p><strong>In conclusion, we aim to build on the predictive success of the elo model using factors such as weather and stadium type to provide accurate betting predictions on whether the listed home team will cover the spread.</strong></p>
 </div>
 </div>
 </div>
@@ -10444,16 +10788,354 @@ Name: outcome, dtype: float64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Conclusion"><strong>Conclusion</strong><a class="anchor-link" href="#Conclusion">¶</a></h1><p>Utilizing the Elo prediction success rate, combined with the data that shows trends within the discrepencies between Elo and market spread will be a key piece in our model that will provide a baseline understanding of the relationship between Elo and market predicted outcomes. These discrepencies can be used as a training variable when running the full model which will tell the user which bet to make on a given game.</p>
+<h2 id="Building-Our-Model"><strong>Building Our Model</strong><a class="anchor-link" href="#Building-Our-Model">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>To build our model, we need to first clean up our data to be usable for regression and classification. This includes making dummy variables, handling missing values, binning variables, and calculating some differential variables.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">roc_auc_score</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">df_total</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">'point_diff'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'home_score'</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="s1">'away_score'</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">'ATS_result'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'point_diff'</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="s1">'historical_spread'</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">'home_cover'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'ATS_result'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">'weather_temperature'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'weather_temperature'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'weather_temperature'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">'weather_wind_mph'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'weather_wind_mph'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'weather_wind_mph'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">'temp_bin'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'weather_temperature'</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">'wind_bin'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'weather_wind_mph'</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">'temp_bin'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'temp_bin'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'temp_bin'</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">'wind_bin'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'wind_bin'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'wind_bin'</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">'stadium_type'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'stadium_type'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">'Unknown'</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">'stadium_open'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'stadium_open'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'stadium_open'</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'stadium_type'</span><span class="p">,</span> <span class="s1">'stadium_surface'</span><span class="p">],</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">'elo_diff'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'home_elo_pre'</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="s1">'away_elo_pre'</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">'qb_elo_diff'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'home_qbelo_pre'</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="s1">'away_qbelo_pre'</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">'home_advantage'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">data</span><span class="p">[</span><span class="s1">'neutral'</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">week_mapping</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'Wildcard'</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+    <span class="s1">'Divisional'</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
+    <span class="s1">'Conference'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s1">'SuperBowl'</span><span class="p">:</span> <span class="mi">21</span>
+<span class="p">}</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">'schedule_week'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'schedule_week'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">week_mapping</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">'schedule_week'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'schedule_week'</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">'coerce'</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">'schedule_week'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'schedule_week'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'schedule_week'</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">'over_under_line'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'over_under_line'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'pk'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">),</span> <span class="n">errors</span><span class="o">=</span><span class="s1">'coerce'</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">'over_under_line'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'over_under_line'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'over_under_line'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">'home_favorite'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'team_favorite_id'</span><span class="p">]</span> <span class="o">==</span> <span class="n">data</span><span class="p">[</span><span class="s1">'home_team'</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">'away_favorite'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'team_favorite_id'</span><span class="p">]</span> <span class="o">==</span> <span class="n">data</span><span class="p">[</span><span class="s1">'away_team'</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'team_favorite_id'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">columns_to_drop</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">'stadium'</span><span class="p">,</span> <span class="s1">'stadium_weather_type'</span><span class="p">,</span> <span class="s1">'home_team'</span><span class="p">,</span> <span class="s1">'away_team'</span><span class="p">,</span> <span class="s1">'home_qb'</span><span class="p">,</span> <span class="s1">'away_qb'</span><span class="p">,</span>
+    <span class="s1">'home_score'</span><span class="p">,</span> <span class="s1">'away_score'</span><span class="p">,</span> <span class="s1">'point_diff'</span><span class="p">,</span> <span class="s1">'ATS_result'</span><span class="p">,</span> <span class="s1">'home_elo_post'</span><span class="p">,</span> <span class="s1">'away_elo_post'</span><span class="p">,</span>
+    <span class="s1">'home_qbelo_post'</span><span class="p">,</span> <span class="s1">'away_qbelo_post'</span><span class="p">,</span> <span class="s1">'home_qb_value_post'</span><span class="p">,</span> <span class="s1">'away_qb_value_post'</span><span class="p">,</span>
+    <span class="s1">'home_qb_game_value'</span><span class="p">,</span> <span class="s1">'away_qb_game_value'</span><span class="p">,</span> <span class="s1">'importance'</span><span class="p">,</span> <span class="s1">'total_rating'</span><span class="p">,</span>
+    <span class="s1">'total_points'</span><span class="p">,</span> <span class="s1">'quality'</span><span class="p">,</span> <span class="s1">'elo_difference'</span><span class="p">,</span> <span class="s1">'ELO_spread'</span><span class="p">,</span> <span class="s1">'home_qb_adj'</span><span class="p">,</span> <span class="s1">'away_qb_adj'</span>
+<span class="p">]</span> <span class="c1">#drop these columns because they get calculated after the game</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">columns_to_drop</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">'ignore'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Now that our data is ready to be used, lets split the data into training and test splits. We can split based off date which will be a better trainiing split than random because it will preserve the nature of past predicting the future in our model so we can accurately judge its predicting ability for the future.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'date'</span><span class="p">)</span>
+<span class="n">split_date</span> <span class="o">=</span> <span class="s1">'2020-01-01'</span>
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">'date'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">split_date</span><span class="p">]</span>
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">'date'</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">split_date</span><span class="p">]</span>
+
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">train_data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'home_cover'</span><span class="p">,</span> <span class="s1">'date'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">'home_cover'</span><span class="p">]</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">test_data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'home_cover'</span><span class="p">,</span> <span class="s1">'date'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">test_data</span><span class="p">[</span><span class="s1">'home_cover'</span><span class="p">]</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>First model type we want to test is Logistic Regression. Its a simple model but very effective. For performance of models we will look at the accuracy, classification report, the confusion matrix, and roc auc score. Accuracy will tell us the overall corectness, the classification report will give us the precision, recall, and f1-score which will tell us how the model performs for each class. The confusion matrix will show us the types of errors the model is making and the roc auc score will tell us how good the model is at distinguishing between the classes.</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
 
+<span class="c1"># 1000 iterations will give the model enough iterations to build a complex relationship and balanced class_weights will change class weights based on frequency</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s1">'balanced'</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Accuracy:'</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Confusion Matrix:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'ROC AUC Score:'</span><span class="p">,</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]))</span>
+</pre></div>
 </div>
 </div>
 </div>
 </div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Accuracy: 0.6706827309236948
+              precision    recall  f1-score   support
+
+           0       0.51      0.78      0.62       170
+           1       0.84      0.61      0.71       328
+
+    accuracy                           0.67       498
+   macro avg       0.68      0.70      0.66       498
+weighted avg       0.73      0.67      0.68       498
+
+Confusion Matrix:
+ [[133  37]
+ [127 201]]
+ROC AUC Score: 0.7274928263988523
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Next we will test RandomForestClassifier. This model type is strong at not overfitting and typically has high accuracy so it will be good to look at how it performs here.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+
+<span class="c1"># n_estimators at 100 is a good balance of efficiency and complexity</span>
+<span class="n">rf_model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s1">'balanced'</span><span class="p">)</span>
+<span class="n">rf_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">y_pred_rf</span> <span class="o">=</span> <span class="n">rf_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Accuracy:'</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_rf</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_rf</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Confusion Matrix:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_rf</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'ROC AUC Score:'</span><span class="p">,</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">rf_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Accuracy: 0.6445783132530121
+              precision    recall  f1-score   support
+
+           0       0.46      0.26      0.33       170
+           1       0.69      0.84      0.76       328
+
+    accuracy                           0.64       498
+   macro avg       0.58      0.55      0.54       498
+weighted avg       0.61      0.64      0.61       498
+
+Confusion Matrix:
+ [[ 44 126]
+ [ 51 277]]
+ROC AUC Score: 0.6970946915351507
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The final model we will look at is GradientBoostingClassifier. This model is strong at handling complex relationships and has high precision and effectiveness in predictive accuracy.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingClassifier</span>
+
+<span class="c1">#learning rate and depth at 0.1 &amp; 3 prevent overfitting but also allow for complex relationships</span>
+<span class="n">gb_model</span> <span class="o">=</span> <span class="n">GradientBoostingClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">gb_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">y_pred_gb</span> <span class="o">=</span> <span class="n">gb_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Accuracy:'</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_gb</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_gb</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Confusion Matrix:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_gb</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'ROC AUC Score:'</span><span class="p">,</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">gb_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Accuracy: 0.642570281124498
+              precision    recall  f1-score   support
+
+           0       0.47      0.38      0.42       170
+           1       0.71      0.78      0.74       328
+
+    accuracy                           0.64       498
+   macro avg       0.59      0.58      0.58       498
+weighted avg       0.63      0.64      0.63       498
+
+Confusion Matrix:
+ [[ 64 106]
+ [ 72 256]]
+ROC AUC Score: 0.713459469153515
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>After looking at all 3 models performances, Logistic Regression is the most effective model across most metrics, performing the best in overall accuracy and ROC AUC, making it the best choice as a model.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Profitability-Analysis-and-Next-Steps"><strong>Profitability Analysis and Next Steps</strong><a class="anchor-link" href="#Profitability-Analysis-and-Next-Steps">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>In order to show how a potential better might fare using this model, we conducted a simple profitability analysis. Assuming a bettor makes 100 bets, at 100 dollars each on the home team to cover the spread (-110 odds), they would net $2,791 profit with a ~28% return on their investment. This is based on our Logistic Regression model's accuracy of 67%.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Our next steps would be to engage in web-scraping to find all real-time data, and continue an analysis to see if the betting model would work as well on new data!</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 </main>
 </body>
 </html>
